@@ -3,9 +3,12 @@ import { useState } from 'react';
 
 export const Tabs = ({ tabs }) => {
   const [activeTabId, setActiveTabId] = useState(tabs[0].id);
+  const onTabSelected = tabs.find(tab => tab.id === activeTabId);
 
   return (
     <>
+      <h1 className="title"> {`Selected tab is ${onTabSelected.title}`}</h1>
+
       <div className="tabs is-boxed">
         <ul>
           {tabs.map(tab => (

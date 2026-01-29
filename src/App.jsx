@@ -8,7 +8,7 @@ import { tabs } from './components/Tabs/constants';
 
 export const App = () => (
   <div className="section">
-    <h1 className="title">Selected tab is Tab 1</h1>
+
 
     <div data-cy="TabsComponent">
       <Tabs tabs={tabs} />

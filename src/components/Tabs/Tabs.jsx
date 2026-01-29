@@ -1,27 +1,33 @@
 import classNames from 'classnames';
-import { useState } from 'react';
 
-export const Tabs = ({ tabs }) => {
-  const [activeTabId, setActiveTabId] = useState(tabs[0].id);
-  const onTabSelected = tabs.find(tab => tab.id === activeTabId);
-
+export const Tabs = ({
+  tabsChildElement,
+  activeTabIdChildElement,
+  setActiveTabIdChildElement,
+  onTabSelectedChildElement,
+}) => {
   return (
     <>
-      <h1 className="title"> {`Selected tab is ${onTabSelected.title}`}</h1>
+      <h1 className="title">
+        {' '}
+        {`Selected tab is ${onTabSelectedChildElement.title}`}
+      </h1>
 
       <div className="tabs is-boxed">
         <ul>
-          {tabs.map(tab => (
+          {tabsChildElement.map(tab => (
             <li
               data-cy="Tab"
               key={tab.id}
-              className={classNames({ 'is-active': tab.id === activeTabId })}
+              className={classNames({
+                'is-active': tab.id === activeTabIdChildElement,
+              })}
             >
               <a
                 href={`#${tab.id}`}
                 onClick={e => {
                   e.preventDefault();
-                  setActiveTabId(tab.id);
+                  setActiveTabIdChildElement(tab.id);
                 }}
               >
                 {tab.title}
@@ -32,9 +38,9 @@ export const Tabs = ({ tabs }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {tabs.map(
+        {tabsChildElement.map(
           tab =>
-            tab.id === activeTabId && (
+            tab.id === activeTabIdChildElement && (
               <div key={tab.id} id={tab.id}>
                 {tab.content}
               </div>

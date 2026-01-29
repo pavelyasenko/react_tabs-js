@@ -4,6 +4,7 @@ import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import './App.scss';
 import { Tabs } from './components/Tabs/Tabs';
+import { tabs } from './components/Tabs/constants';
 
 export const App = () => (
   <div className="section">
@@ -11,7 +12,7 @@ export const App = () => (
 
     <div data-cy="TabsComponent">
       <div className="tabs is-boxed">
-        <Tabs />
+        <Tabs tabs={tabs}/>
       </div>
     </div>
   </div>

@@ -11,9 +11,7 @@ export const App = () => (
     <h1 className="title">Selected tab is Tab 1</h1>
 
     <div data-cy="TabsComponent">
-      <div className="tabs is-boxed">
-        <Tabs tabs={tabs}/>
-      </div>
+      <Tabs tabs={tabs} />
     </div>
   </div>
 );

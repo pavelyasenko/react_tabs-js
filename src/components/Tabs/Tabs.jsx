@@ -6,25 +6,28 @@ export const Tabs = ({ tabs }) => {
 
   return (
     <>
-      <ul>
-        {tabs.map(tab => (
-          <li
-            key={tab.id}
-            className={classNames({ 'is-active': tab.id === activeTabId })}
-          >
-            <a
-              href={`#${tab.id}`}
-              onClick={e => {
-                e.preventDefault();
-                setActiveTabId(tab.id);
-              }}
+      <div className="tabs is-boxed">
+        <ul>
+          {tabs.map(tab => (
+            <li
+              key={tab.id}
+              className={classNames({ 'is-active': tab.id === activeTabId })}
             >
-              {tab.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <div>
+              <a
+                href={`#${tab.id}`}
+                onClick={e => {
+                  e.preventDefault();
+                  setActiveTabId(tab.id);
+                }}
+              >
+                {tab.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="block" data-cy="TabContent">
         {tabs.map(
           tab =>
             tab.id === activeTabId && (

@@ -8,7 +8,7 @@ import { tabs } from './components/Tabs/constants';
 
 export const App = () => {
   const [activeTabId, setActiveTabId] = useState(tabs[0].id);
-  const onTabSelected = tabs.find(tab => tab.id === activeTabId)
+  const onTabSelected = tabs.find(tab => tab.id !== activeTabId)
     ? tabs.find(tab => tab.id === activeTabId)
     : tabs[0];
 
@@ -19,7 +19,7 @@ export const App = () => {
         <Tabs
           activeTabId={activeTabId}
           tabs={tabs}
-          setActiveTabId={setActiveTabId}
+          onTabSelected={setActiveTabId}
         />
       </div>
     </div>
